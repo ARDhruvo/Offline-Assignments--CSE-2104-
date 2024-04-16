@@ -1,3 +1,7 @@
+/* Creation date: 16/04/2024
+ * Update date: 17/04/2024
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,21 +18,6 @@ void printVect(vector<int> A)
 
 int binarySearch(vector<int> A, int k)
 {
-    int n = A.size();
-    for(int j = 0; j <= n-2; j++)
-    {
-        int mini = A[j], pos = j;
-        for(int i = j+1; i <= n-1; i++)
-        {
-            if(A[i] < mini)
-            {
-                mini = A[i];
-                pos = i;
-            }
-
-        }
-        swap(A[pos], A[j]);
-    } //sorted again because functions dont store memories
     int lo = 0, hi = A.size() - 1;
     while(lo <= hi)
     {
@@ -49,7 +38,7 @@ int binarySearch(vector<int> A, int k)
     return 0;
 }
 
-int selectionSort(vector<int> A)
+vector<int> selectionSort(vector<int> A)
 {
     int n = A.size();
     for(int j = 0; j <= n-2; j++)
@@ -67,6 +56,7 @@ int selectionSort(vector<int> A)
         swap(A[pos], A[j]);
     }
     printVect(A);
+    return A;
 }
 
 int main()
@@ -83,7 +73,7 @@ int main()
     printVect(A); //printing the elements
     cout << "\n";
     cout << "Selection Sorted elements:\n";
-    selectionSort(A); //sorting the elements
+    A = selectionSort(A); //sorting the elements
     cout << "\n";
     cout << "Enter element for searching:\n";
     int k; //variable to search
