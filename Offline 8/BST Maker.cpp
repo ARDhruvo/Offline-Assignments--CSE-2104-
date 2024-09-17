@@ -121,7 +121,7 @@ void BSTdelete(int val)
                 curr_node = curr_node->left;
             }
             temp->data = curr_node->data;
-            if (prev_node->left == curr_node->right) // Replaces the data with the smallest one
+            if (prev_node->left == curr_node) // Replaces the data with the smallest one
             {
                 prev_node->left = curr_node->right;
             }
